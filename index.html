@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css">
+    <style>
+
+
+        ul {
+      text-align: center;
+      margin: 0 auto;
+  }
+
+  li {
+    padding: 30px;
+    margin: 0 auto;
+    
+  }
+
+
+
+ .create {
+     text-align: center;
+     padding-top: 15px;
+ }
+
+.work {
+    white-space: pre;
+}
+
+
+  
+    </style>
+</head>
+
+<body>
+    <main id="app">
+        <h1 class="ui dividing centered header">City Tech Centre</h1>
+        <div class='ui centered card'>
+            <div class='content'>
+                <div class='ui form'>
+
+
+                    <form @submit.prevent="addTodo">
+                        <label for="newTodo"></label>
+                        <div class='field'>
+                            <input v-model="newTodo" type="text" name="newTodo" id="newTodo" placeholder="Client">
+                        </div>
+
+                        <br>
+
+                        <div class='field'>
+                            <input v-model="newLaptop" type="text" name="newLaptop" id="newLaptop" placeholder="Laptop">
+                        </div>
+
+                        <br>
+
+                        <div class="work">
+                            <textarea rows="4" cols="50" v-model="newIssue" type="text" name="newIssue" id="newIssue"
+                                placeholder="Issue/Request"></textarea>
+
+                        </div>
+
+                        <br>
+                        <br>
+
+                        <div class="work">
+                            <textarea rows="4" cols="50" v-model="newSolution" type="text" name="newSolution" id="newSolution"
+                                placeholder="Solution">
+
+        </textarea>
+                        </div>
+                        <br>
+
+                        <div class="create">
+                            <button class="ui green basic button">Create</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <template>
+
+            <div class="ui centered cards">
+                <ul>
+                    <li v-for="todo in todos">
+
+
+                        <div class="header">
+                            <span :class="{ done: todo.done }">{{todo.client}}</span>
+                        </div>
+
+                        <br>
+
+                        <div class="meta">
+                            <span :class="{ done: todo.done }">{{todo.laptop}}</span>
+                        </div>
+
+                        <br>
+
+                        <div class="work">
+                            <span :class="{ done: todo.done }">{{todo.issue}}</span>
+                        </div>
+
+                        <br>
+
+                        <div class="work">
+                            <div class="{ done: todo.done }">{{todo.solution}}</div>
+                        </div>
+
+
+
+
+                        <br>
+
+
+                        <div class="ui basic red button" @click="deleteTodo(todo)" id="Delete" type="button" name="button">Delete</div>
+                        <div class="ui divider"></div>
+
+                    </li>
+                </ul>
+
+            </div>
+
+
+
+
+
+        </template>
+
+
+
+
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js" charset="utf-8"></script>
+</body>
+
+</html>
